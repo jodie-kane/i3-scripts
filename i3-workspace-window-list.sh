@@ -1,5 +1,7 @@
 #!/bin/bash 
 
+## TODO: handle tabbed windows ;)
+
 i3_tree="$( i3-msg -t get_tree )"
 
 # output pipe delimited text 
