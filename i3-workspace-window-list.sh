@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-## TODO: handle tabbed windows ;)
+## TODO: perhaps give user option to list tabbed "root" also? 
 
 i3_tree="$( i3-msg -t get_tree )"
 
@@ -8,13 +8,20 @@ i3_tree="$( i3-msg -t get_tree )"
 windows="$( 
   echo ${i3_tree} | jq -jc \
     '.nodes[].nodes[].nodes[] | 
+
       select( .type == "workspace" ) as $works | 
-        ( .nodes[], .floating_nodes[].nodes[] ) as $wins | 
+
+      ( select( $works.nodes[].window_properties.class != null ).nodes[],
+        select( $works.floating_nodes != null).floating_nodes[].nodes[], 
+        select( $works.nodes[].layout == "tabbed").nodes[].nodes[] 
+      ) as $wins |
+
           $wins.id, "|",
           "[", $works.num, "]|", 
           $wins.focused, "|",
           $wins.window_properties.class, "|", 
           $wins.window_properties.title,  
+
           "\n"'
 )"
 
