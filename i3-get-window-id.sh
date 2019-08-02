@@ -11,7 +11,8 @@ con_ids=( $( echo "${windows}" | cut -d'|' -f 1 ) )
 
 # get the index of our window of choice
 # "rofi -i" == return index of selected
-index=$( echo "${windows}" | cut -d'|' -f2,4- | column -s'|' -t | rofi -font 'mono 14' -dmenu -no-custom -location 1 -width 55% -format i -p 'winlist: ')
+index=$( echo "${windows}" | cut -d'|' -f2,4- | column -s'|' -t | \
+         rofi -font 'mono 14' -dmenu -no-custom -location 1 -width 55% -format i -p 'winlist: ')
 
 # if we don't select anything above, $index is unset
 # and "unset -eq 0", so we set a default
