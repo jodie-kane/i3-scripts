@@ -26,7 +26,7 @@ windows="$(
 )"
 
 # to make the workspace numbers line up
-# we map:
+# i.e., single column, we map:
 # [-1] => [S] :: scratchpad
 # [10] => [0] :: it's also actually the key on the keyboard ;)
 
