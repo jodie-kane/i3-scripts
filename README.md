@@ -1,7 +1,7 @@
-###i3-scripts
+### i3-scripts
 
 I use these + rofi to handle window switching. \
-Although in principle you can use them to 
+Although in principal you can use them to 
 apply any valid i3 command to a selected window.
 
 ```bash
