@@ -3,7 +3,8 @@
 ### hideously inefficient script; but it doesn't need to be ;)
 ### uses rofi
 
-windows="$( ***REMOVED***i3-workspace-window-list.sh )"
+#get window list
+windows="$( i3-workspace-window-list.sh )"
 
 # separate the con_ids
 con_ids=( $( echo "${windows}" | cut -d'|' -f 1 ) )

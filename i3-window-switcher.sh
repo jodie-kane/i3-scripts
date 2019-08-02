@@ -2,9 +2,7 @@
 
 ### hideously inefficient script; but it doesn't need to be ;)
 ### uses rofi
-
-con_id="$( ***REMOVED***i3-get-window-id.sh )"
-
+con_id="$( i3-get-window-id.sh )"
 if [[ -n "${con_id}" ]]
 then 
 
