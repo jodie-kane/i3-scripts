@@ -1,8 +1,7 @@
 ### i3-scripts
 
-I use these + rofi + jq to handle window switching. \
-Although in principal you can use them to 
-apply any valid i3 command to a selected window.
+I use the following scripts to handle window switching. \
+Although in principal you can use them to apply any valid i3 command to a selected window.
 
 The scripts expect to found in the PATH
 (you may need to set it via: ~/.xsessionrc for i3 to see it)
@@ -14,3 +13,8 @@ i3-window-switcher.sh
 i3-workspace-window-list.sh
 ```
 
+##### e.g., in your i3 config
+```
+  bindsym $mod+grave exec --no-startup-id ***REMOVED***i3-window-switcher.sh
+  bindsym $mod+F4    exec --no-startup-id ***REMOVED***i3-window-apply.sh kill
+```
