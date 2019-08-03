@@ -7,22 +7,22 @@ i3_tree="$( i3-msg -t get_tree )"
 # output pipe delimited text 
 windows="$( 
   echo ${i3_tree} | jq -jc \
-    '.nodes[].nodes[].nodes[] | 
+  '.nodes[].nodes[].nodes[] | 
+      select( .type == "workspace") as $works | 
+        ( 
+          $works.nodes[], 
+          $works.nodes[].nodes[],
+          $works.floating_nodes[].nodes[]) as $wins |
+          select( $wins.window_properties != null 
+        ) |
 
-      select( .type == "workspace" ) as $works | 
+        $wins.id, "|",
+        "[", $works.num, "]|", 
+        $wins.focused, "|",
+        $wins.window_properties.class, "|", 
+        $wins.window_properties.title,  
 
-      ( select( $works.nodes[].window_properties.class != null ).nodes[],
-        select( $works.floating_nodes != null).floating_nodes[].nodes[], 
-        select( $works.nodes[].layout == "tabbed").nodes[].nodes[] 
-      ) as $wins |
-
-          $wins.id, "|",
-          "[", $works.num, "]|", 
-          $wins.focused, "|",
-          $wins.window_properties.class, "|", 
-          $wins.window_properties.title,  
-
-          "\n"'
+        "\n"'
 )"
 
 # to make the workspace numbers line up
