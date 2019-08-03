@@ -15,6 +15,6 @@ i3-workspace-window-list.sh
 
 ##### e.g., in your i3 config
 ```
-  bindsym $mod+grave exec --no-startup-id ***REMOVED***i3-window-switcher.sh
-  bindsym $mod+F4    exec --no-startup-id ***REMOVED***i3-window-apply.sh kill
+  bindsym $mod+grave exec --no-startup-id i3-window-switcher.sh
+  bindsym $mod+F4    exec --no-startup-id i3-window-apply.sh kill
 ```
