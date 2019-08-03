@@ -16,6 +16,7 @@ index=$( echo "${windows}" | cut -d'|' -f2,4- | column -s'|' -t | \
 
 # if we don't select anything above, $index is unset
 # and "unset -eq 0", so we set a default
+# QUESTION: shouldn't this then be '-gt'?
 if [[ ${index:--1} -ge 0 ]]
 then
 
