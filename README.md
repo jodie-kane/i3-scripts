@@ -1,7 +1,7 @@
 ### i3-scripts
 
 I use the following scripts to handle window switching. \
-Although in principal you can use them to apply any valid i3 command to a selected window.
+Although in principle you can use them to apply any valid i3 command to a selected window.
 
 The scripts expect to found in the PATH
 (you may need to set it via: ~/.xsessionrc for i3 to see it)
