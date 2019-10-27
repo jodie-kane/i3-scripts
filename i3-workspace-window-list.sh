@@ -10,11 +10,16 @@ windows="$(
   '.nodes[].nodes[].nodes[] | 
       select( .type == "workspace") as $works | 
         ( 
+
           $works.nodes[], 
           $works.nodes[].nodes[],
-          $works.floating_nodes[].nodes[]) as $wins |
-          select( $wins.window_properties != null 
-        ) |
+          $works.floating_nodes[].nodes[],
+          $works.floating_nodes[].nodes[].nodes[]
+          
+
+        ) as $wins |
+
+        select( $wins.window_properties != null ) |
 
         $wins.id, "|",
         "[", $works.num, "]|", 
